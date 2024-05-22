@@ -19,11 +19,7 @@ class Phockup < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources
-
-    prefix.install Dir["*"]
-    bin.install_symlink prefix/"phockup.py" => "phockup"
+    virtualenv_install_with_resources
   end
 
   test do
